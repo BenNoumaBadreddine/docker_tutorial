@@ -1,0 +1,25 @@
+version: '3'
+services:
+  my-app:
+#   image: ${DOCKER_REGISTRY}/my-app:1.0
+   image: my-app:1.0
+   ports:
+     - 3000:3000
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    env_file:
+      - .env
+    volumes:
+      - mongo-data:/data/db # to get the data persistent
+  mongo-express:
+    image: mongo-express
+    restart: always # fixes MongoNetworkError when mongodb is not ready when mongo-express starts
+    ports:
+      - 8080:8081
+    env_file:
+      - .env
+volumes:
+  mongo-data:
+    driver: local # a hint for docker to store the data locally
