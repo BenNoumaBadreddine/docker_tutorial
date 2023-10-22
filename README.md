@@ -11,10 +11,12 @@ This command will download the image from docker Hub locally, and later you will
 1.     docker pull name_of_docker_image: version_number 
 
 Check all the existent images on my computer as a docker images:
+
 2.     docker images 
 
 Create a container of the name_of_docker_image that will make it 
 possible to connect to the name_of_docker_image application.
+
 3.     docker run -p host_port_number:image_port_number -d name_of_docker_image: version_number  --name container_name
 
 If we didn't do 'pull' image before the run command, it will automatically 'pull' and 'run' the image.
@@ -30,6 +32,7 @@ an available port in the localhost.
 --name option will allocate the container_name to the current container instead of assigning a random name.
 
 Get the list of all the running docker containers.
+
 4.     docker ps -a
 
 -a option: to get the history of all the stopped and running containers.
@@ -37,17 +40,21 @@ Get the list of all the running docker containers.
 ![Alt text](assets/docker_ps.png "docker ps command")
 
 To stop a specific container using the container ID.
+
 5.     docker stop container_id
 
 To start a specific container using the container ID
+
 6.     docker start container_id
 
 
 This is a command for troubleshooting. When something goes wrong in the container. 
+
 7.     docker logs container_name  or docker logs container_id
 
 
 When we want to get inside the container.
+
 8.     docker exec it container_id /bin/bash
 
 Get the terminal and execute some command on it.
